@@ -1,0 +1,14 @@
+function Xk=dft(x,N) % DFT = dft(signal, number of points) 
+Xk = zeros(1,N);
+aux = Xk;
+
+for k = 0 : N-1
+    for n = 0 : N-1
+        aux(k+1,n+1) = x(1,n+1).*exp(-2*pi*1i*k*n/N);
+        if n == N-1
+            Xk(1,k+1) = sum(aux(k+1,1:end));
+        end
+    end
+end
+
+end
